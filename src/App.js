@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Github, Linkedin, ExternalLink, Download, Moon, Sun, Code, Database, Server, Globe, Calendar, Award, ChevronRight, Menu, X } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink, Download, Moon, Sun, Code, Database, Server, Calendar, Award, ChevronRight, Menu, X } from 'lucide-react';
 
 export default function AdvancedPortfolio() {
   const [darkMode, setDarkMode] = useState(true);
