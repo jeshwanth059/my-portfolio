@@ -6,6 +6,7 @@ export default function AdvancedPortfolio() {
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState({});
 
   useEffect(() => {
