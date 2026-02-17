@@ -137,11 +137,35 @@ export default function AdvancedPortfolio() {
     }
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Form submitted! In production, this would send to your backend API.');
-    setFormData({ name: '', email: '', message: '' });
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
+  
+  try {
+    setIsSubmitting(true);
+    
+    const response = await fetch(`${API_URL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    if (response.ok) {
+      alert('✅ Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      alert('❌ Failed to send. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('❌ Failed to connect to server.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
