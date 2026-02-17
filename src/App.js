@@ -54,14 +54,26 @@ export default function AdvancedPortfolio() {
     { name: 'Spring Boot', level: 80, icon: '🍃', category: 'Backend' },
     { name: 'React.js', level: 88, icon: '⚛️', category: 'Frontend' },
     { name: 'JavaScript', level: 85, icon: '🟨', category: 'Frontend' },
-    { name: 'Node.js', level: 82, icon: '🟢', category: 'Backend' },
     { name: 'MySQL', level: 80, icon: '🐬', category: 'Database' },
     { name: 'PostgreSQL', level: 75, icon: '🐘', category: 'Database' },
     { name: 'HTML & CSS', level: 90, icon: '🎨', category: 'Frontend' },
     { name: 'Tailwind CSS', level: 85, icon: '💨', category: 'Frontend' },
     { name: 'Redux', level: 78, icon: '🔄', category: 'Frontend' },
     { name: 'Git & GitHub', level: 88, icon: '🔧', category: 'Tools' },
-    { name: 'REST APIs', level: 85, icon: '🔌', category: 'Backend' }
+    { name: 'REST APIs', level: 85, icon: '🔌', category: 'Backend' },
+
+    // Tools
+    { name: 'VS Code', level: 92, icon: '💙', category: 'Tools' },
+    { name: 'Eclipse', level: 80, icon: '🌑', category: 'Tools' },
+    { name: 'Netlify', level: 85, icon: '🚀', category: 'Deployment' },
+    { name: 'Render', level: 82, icon: '☁️', category: 'Deployment' },
+    { name: 'Vercel', level: 80, icon: '▲', category: 'Deployment' },
+
+    // AI Tools
+    { name: 'ChatGPT', level: 90, icon: '🤖', category: 'AI Tools' },
+    { name: 'Claude AI', level: 88, icon: '🧠', category: 'AI Tools' },
+    { name: 'GitHub Copilot', level: 82, icon: '🤝', category: 'AI Tools' },
+    { name: 'Cursor AI', level: 78, icon: '✨', category: 'AI Tools' },
   ];
 
   const projects = [
@@ -78,7 +90,7 @@ export default function AdvancedPortfolio() {
       title: 'Food Delivery Web Application',
       description: 'Full-stack food delivery app with Stripe payment integration, secure JWT auth, Cloudinary image optimization, and RESTful APIs for menu and order management.',
       tech: ['React.js', 'Node.js', 'Redux', 'JWT', 'Stripe API', 'Cloudinary'],
-      github: 'https://github.com/jeshwanth059',
+      github: 'https://github.com/jeshwanth059/Food-Delivery-Application',
       live: '#',
       image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       highlights: ['Stripe Payment Gateway', 'Secure Authentication', 'Real-time Order Tracking']
@@ -110,7 +122,7 @@ export default function AdvancedPortfolio() {
     {
       role: 'Full-Stack Java Development Trainee',
       company: 'CODE BEGUN',
-      period: '2024 – Present',
+      period: '2025 – Present',
       type: 'Madhapur, Hyderabad',
       description: 'Currently undergoing Full-Stack Java Development training focusing on frontend and backend technologies.',
       achievements: [
@@ -342,10 +354,20 @@ export default function AdvancedPortfolio() {
             </div>
             <div className={`space-y-6 ${isVisible.about ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
               <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                I'm a passionate <span className="text-purple-500 font-semibold">Full-Stack Java Developer</span> from Visakhapatnam, pursuing B.Tech in Computer Science at GITAM University (2021–2025) with a CGPA of 7.19.
+                Computer Science graduate from GITAM University, passionate about building 
+                scalable full-stack web applications. Proficient in <span className="text-purple-500 font-semibold">Java, JavaScript, and React.js</span>, 
+                with hands-on experience in <span className="text-purple-500 font-semibold">Spring Boot, Node.js, and PostgreSQL</span>. 
+                Skilled in developing RESTful APIs, cloud deployments, and creating responsive 
+                user interfaces with Tailwind CSS and Redux.
               </p>
+
               <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                Currently undergoing Full-Stack Java Development training at CODE BEGUN, Hyderabad. I have hands-on experience with React.js, Node.js, Spring Boot, and database technologies through real-world projects and internship.
+                Completed a Frontend Developer internship at <span className="text-purple-500 font-semibold">SmartEd</span> and 
+                built real-world projects including an Ecommerce and Food Delivery platform with 
+                payment integration and JWT authentication. Currently undergoing Full-Stack Java 
+                training at <span className="text-purple-500 font-semibold">CODE BEGUN, Hyderabad</span>. A fast learner 
+                with strong problem-solving and team collaboration skills, eager to contribute to 
+                innovative teams and grow as a <span className="text-purple-500 font-semibold">Full-Stack Java Developer</span>.
               </p>
               <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
