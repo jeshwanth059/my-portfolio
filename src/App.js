@@ -14,24 +14,39 @@ export default function AdvancedPortfolio() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState({});
   const [photoError, setPhotoError] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    // Intersection observer for animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+            setActiveSection(entry.target.id);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
     document.querySelectorAll('section[id]').forEach(section => {
       observer.observe(section);
     });
 
-    return () => observer.disconnect();
+    // Scroll progress bar
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const skills = [
@@ -39,7 +54,7 @@ export default function AdvancedPortfolio() {
     { name: 'Spring Boot', level: 80, icon: '🍃', category: 'Backend' },
     { name: 'React.js', level: 88, icon: '⚛️', category: 'Frontend' },
     { name: 'JavaScript', level: 85, icon: '🟨', category: 'Frontend' },
-    // { name: 'Node.js', level: 82, icon: '🟢', category: 'Backend' },
+    { name: 'Node.js', level: 82, icon: '🟢', category: 'Backend' },
     { name: 'MySQL', level: 80, icon: '🐬', category: 'Database' },
     { name: 'PostgreSQL', level: 75, icon: '🐘', category: 'Database' },
     { name: 'HTML & CSS', level: 90, icon: '🎨', category: 'Frontend' },
@@ -63,7 +78,7 @@ export default function AdvancedPortfolio() {
       title: 'Food Delivery Web Application',
       description: 'Full-stack food delivery app with Stripe payment integration, secure JWT auth, Cloudinary image optimization, and RESTful APIs for menu and order management.',
       tech: ['React.js', 'Node.js', 'Redux', 'JWT', 'Stripe API', 'Cloudinary'],
-      github: 'https://github.com/jeshwanth059/Food-Delivery-Application',
+      github: 'https://github.com/jeshwanth059',
       live: '#',
       image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       highlights: ['Stripe Payment Gateway', 'Secure Authentication', 'Real-time Order Tracking']
@@ -191,6 +206,9 @@ export default function AdvancedPortfolio() {
 
       {/* Navigation */}
       <nav className={`fixed w-full top-0 z-50 glass ${darkMode ? 'border-b border-gray-800' : 'border-b border-gray-200'}`}>
+        {/* Scroll Progress Bar */}
+        <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-100 z-50"
+          style={{width: `${scrollProgress}%`}} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
@@ -477,7 +495,7 @@ export default function AdvancedPortfolio() {
               <div className="border-l-4 border-purple-500 pl-4">
                 <h4 className="text-xl font-semibold">B.Tech in Computer Science</h4>
                 <p className="text-purple-500">GITAM University, Visakhapatnam</p>
-                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>2021 – 2025 | CGPA: 7.2</p>
+                <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>2021 – 2025 | CGPA: 7.19</p>
               </div>
               <div className="border-l-4 border-purple-500 pl-4">
                 <h4 className="text-xl font-semibold">Board of Intermediate</h4>
